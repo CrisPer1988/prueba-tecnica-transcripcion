@@ -30,7 +30,16 @@ export async function POST(request: NextRequest) {
 
       fs.unlinkSync(tempFilePath);
 
-      return NextResponse.json({ url: result.secure_url });
+      const response = NextResponse.json({ url: result.secure_url });
+
+      response.headers.set("Access-Control-Allow-Origin", "*");
+      response.headers.set(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PUT, DELETE, OPTIONS"
+      );
+      response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+      return response;
     } catch (error) {
       console.error("Error uploading file to Cloudinary:", error);
       return NextResponse.json({ error: "Error uploading file to Cloudinary" });
