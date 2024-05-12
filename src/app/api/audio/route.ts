@@ -26,8 +26,7 @@ export async function POST(request: NextRequest) {
 
     try {
       const result = await cloudinary.uploader.upload(tempFilePath, {
-        resource_type: "raw",
-        access_mode: "public",
+        resource_type: "auto",
       });
 
       fs.unlinkSync(tempFilePath);
