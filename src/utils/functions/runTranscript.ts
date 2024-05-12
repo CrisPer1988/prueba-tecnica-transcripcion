@@ -19,8 +19,7 @@ export const run = async (
 ): Promise<void> => {
   setLoading(true);
   const data: Data = {
-    audio_url:
-      "https://res.cloudinary.com/dt5wyofhb/video/upload/v1715531075/vmeoibuncjovy023xngo.wav",
+    audio_url: audioSource,
     language_code: "es",
     speaker_labels: true,
     speakers_expected: 2,
