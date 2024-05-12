@@ -44,10 +44,21 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(req: NextRequest) {
   const res = NextResponse.next();
 
+  res.headers.append("Access-Control-Allow-Credentials", "true");
+
+  res.headers.append("Access-Control-Allow-Origin", "*");
+
   res.headers.append(
-    "ACCESS-CONTROL-ALLOW-ORIGIN",
-    "https://prueba-tecnica-transcripcion.vercel.app/"
+    "Access-Control-Allow-Methods",
+    "GET, DELETE, PATCH, POST, PUT"
   );
+
+  //   res.headers.append("Access-Control-Allow-Headers", "X-CSRF-Token m")
+
+  //   res.headers.append(
+  //     "ACCESS-CONTROL-ALLOW-ORIGIN",
+  //     "https://prueba-tecnica-transcripcion.vercel.app/"
+  //   );
 
   return res;
 }
