@@ -8,6 +8,7 @@ cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY_CLOUD,
   api_secret: process.env.API_SECRET,
+  secure: true,
 });
 
 export async function POST(request: NextRequest) {
@@ -41,14 +42,14 @@ export async function POST(request: NextRequest) {
 
       return response;
     } catch (error) {
-      console.error("Error uploading file to Cloudinary:", error);
+      console.error("Error uploading to Cloudinary:", error);
       return NextResponse.json({
         error: "Error uploading file to Cloudinary",
         errorCode: error,
       });
     }
   } catch (error) {
-    console.error("Error uploading file to Cloudinary:", error);
+    console.error("Error uploading to Cloudinary:", error);
     return NextResponse.json({
       error: "Internal server error",
       errorCode: error,
