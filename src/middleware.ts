@@ -46,7 +46,7 @@ export function middleware(req: NextRequest) {
 
   res.headers.append(
     "ACCESS-CONTROL-ALLOW-ORIGIN",
-    "https://prueba-tecnica-transcripcion-cristians-projects-99e3cf7d.vercel.app/"
+    "https://prueba-tecnica-transcripcion.vercel.app/"
   );
 
   return res;
