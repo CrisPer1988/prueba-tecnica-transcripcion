@@ -24,10 +24,14 @@ export async function POST(request: NextRequest) {
 
     fs.writeFileSync(tempFilePath, Buffer.from(await file.arrayBuffer()));
 
+    let cloudinaryResponse;
+
     try {
       const result = await cloudinary.uploader.upload(tempFilePath, {
         resource_type: "raw",
       });
+
+      cloudinaryResponse = result;
 
       fs.unlinkSync(tempFilePath);
 
@@ -38,6 +42,7 @@ export async function POST(request: NextRequest) {
       return response;
     } catch (error) {
       console.error("Error uploading to Cloudinary:", error);
+      console.error("Cloudinary response:", await cloudinaryResponse);
       return NextResponse.json({
         error: "Error uploading file to Cloudinary",
         errorCode: error,
