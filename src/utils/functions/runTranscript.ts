@@ -15,12 +15,10 @@ export const run = async (
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
   setTranscription: React.Dispatch<React.SetStateAction<any>>,
   audioSource: string
-  //   data
 ): Promise<void> => {
   setLoading(true);
   const data: Data = {
-    audio_url:
-      "https://res.cloudinary.com/dt5wyofhb/video/upload/v1715544458/jvgm6ugpze27zdssy6e1.wav",
+    audio_url: audioSource,
     language_code: "es",
     speaker_labels: true,
     speakers_expected: 2,
