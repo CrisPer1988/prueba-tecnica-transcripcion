@@ -6,7 +6,7 @@ export const handleAudioUpload = async (
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
   setTranscription: React.Dispatch<React.SetStateAction<Transcript | null>>
 ) => {
-  const file = event.target.files?.[0];
+  const file = event?.target?.files?.[0];
   setLoading(true);
 
   if (file) {
@@ -25,7 +25,7 @@ export const handleAudioUpload = async (
       const data = await response.json();
       setLoading(false);
 
-      setAudioSource(data.url);
+      setAudioSource(data?.url);
     } catch (error) {
       throw new Error("No se pudo cargar el audio");
     }
