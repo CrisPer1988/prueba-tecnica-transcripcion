@@ -28,17 +28,22 @@ const Reproductor: React.FC<ReproductorProps> = ({
           handleAudioUpload(e, setAudioSource, setLoading, setTranscription)
         }
       />
-      {audioSource && (
-        <div className="flex flex-col sm:flex-row gap-4  items-center">
-          <audio ref={audioRef} controls src={audioSource} />
-          <button
-            className="border p-3 rounded-lg bg-slate-100"
-            onClick={() => run(setLoading, setTranscription, audioSource)}
-          >
-            Transcribir
-          </button>
-        </div>
-      )}
+
+      <div className="flex flex-col sm:flex-row gap-4  items-center">
+        <audio
+          ref={audioRef}
+          controls
+          src={
+            "https://res.cloudinary.com/dt5wyofhb/video/upload/v1715531075/vmeoibuncjovy023xngo.wav"
+          }
+        />
+        <button
+          className="border p-3 rounded-lg bg-slate-100"
+          onClick={() => run(setLoading, setTranscription, audioSource)}
+        >
+          Transcribir
+        </button>
+      </div>
     </div>
   );
 };
