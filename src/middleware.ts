@@ -9,6 +9,8 @@ const allowdOrigins =
     : ["http://localhost:3000"];
 
 export default function middlewate(request: Request) {
+  console.log("ENTRANDO AL MIDDLEWARE");
+
   const origin = request.headers.get("origin");
   console.log(origin);
 
@@ -33,6 +35,6 @@ export default function middlewate(request: Request) {
   return response;
 }
 
-export const config = {
-  matcher: "/api/:path*",
-};
+// export const config = {
+//   matcher: "/api/:path*",
+// };
