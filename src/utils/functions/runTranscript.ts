@@ -8,7 +8,7 @@ interface Data {
 }
 
 const client = new AssemblyAI({
-  apiKey: process.env.NEXT_PUBLIC_API_KEY_ASSEMBLYAI || "",
+  apiKey: process.env.API_KEY_ASSEMBLYAI || "",
 });
 
 export const run = async (
