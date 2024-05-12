@@ -5,9 +5,9 @@ import os from "os";
 import path from "path";
 
 cloudinary.config({
-  cloud_name: process.env.NEXT_PUBLIC_CLOUD_NAME,
-  api_key: process.env.NEXT_PUBLIC_API_KEY_CLOUD,
-  api_secret: process.env.NEXT_PUBLIC_API_SECRET,
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY_CLOUD,
+  api_secret: process.env.API_SECRET,
   secure: true,
 });
 
