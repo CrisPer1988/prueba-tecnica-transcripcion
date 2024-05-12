@@ -46,6 +46,9 @@ export async function POST(request: NextRequest) {
     }
   } catch (error) {
     console.error("Error uploading file to Cloudinary:", error);
-    return NextResponse.json({ error: "Internal server error" });
+    return NextResponse.json({
+      error: "Internal server error",
+      errorCode: error,
+    });
   }
 }
