@@ -3,6 +3,7 @@ import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 import os from "os";
 import path from "path";
+import { middleware } from "../middlewares/corsMiddleware";
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -12,6 +13,11 @@ cloudinary.config({
 });
 
 export async function POST(request: NextRequest) {
+  const corsResponse = middleware(request);
+  if (corsResponse) {
+    return corsResponse;
+  }
+
   try {
     const formData = await request.formData();
     const file = formData.get("file");
