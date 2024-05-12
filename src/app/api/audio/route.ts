@@ -15,6 +15,7 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const file = formData.get("file");
+    console.log("siguiendo file", file);
 
     if (!file || !(file instanceof File)) {
       return NextResponse.json({ error: "No file found in form data" });
@@ -28,6 +29,7 @@ export async function POST(request: NextRequest) {
       const result = await cloudinary.uploader.upload(tempFilePath, {
         resource_type: "auto",
       });
+      console.log("result", result);
 
       fs.unlinkSync(tempFilePath);
 
