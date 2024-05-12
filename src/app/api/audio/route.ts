@@ -3,6 +3,7 @@ import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 import os from "os";
 import path from "path";
+import middleware from "@/middleware";
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -11,6 +12,11 @@ cloudinary.config({
 });
 
 export async function POST(request: NextRequest) {
+  const res = await middleware(request);
+  if (res) {
+    return res;
+  }
+
   try {
     const formData = await request.formData();
     const file = formData.get("file");

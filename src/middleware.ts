@@ -8,7 +8,7 @@ const allowdOrigins =
       ]
     : ["http://localhost:3000"];
 
-export default function middlewate(request: Request) {
+export default function middleware(request: Request) {
   const origin = request.headers.get("origin");
   console.log(origin);
 
