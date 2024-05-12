@@ -5,9 +5,9 @@ import os from "os";
 import path from "path";
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY_CLOUD,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  api_secret: process.env.API_SECRET,
   secure: true,
 });
 
@@ -31,7 +31,9 @@ export async function POST(request: NextRequest) {
 
       fs.unlinkSync(tempFilePath);
 
-      const response = NextResponse.json({ url: result.secure_url });
+      const response = NextResponse.json({
+        url: result.secure_url,
+      });
 
       response.headers.set("Access-Control-Allow-Origin", "*");
       response.headers.set(
@@ -46,7 +48,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         error: "Error uploading file to Cloudinary",
         errorCode: error,
-        key: process.env.CLOUDINARY_API_KEY,
       });
     }
   } catch (error) {
@@ -54,7 +55,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       error: "Internal server error",
       errorCode: error,
-      key: process.env.CLOUDINARY_API_KEY,
     });
   }
 }
