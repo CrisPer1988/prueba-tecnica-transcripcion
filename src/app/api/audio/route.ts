@@ -27,7 +27,6 @@ export async function POST(request: NextRequest) {
     try {
       const result = await cloudinary.uploader.upload(tempFilePath, {
         resource_type: "raw",
-        // type: "authenticated",
       });
 
       fs.unlinkSync(tempFilePath);
@@ -42,6 +41,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         error: "Error uploading file to Cloudinary",
         errorCode: error,
+        file: file,
       });
     }
   } catch (error) {
