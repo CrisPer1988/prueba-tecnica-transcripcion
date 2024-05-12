@@ -3,8 +3,10 @@ import { NextResponse } from "next/server";
 const allowdOrigins =
   process.env.NODE_ENV === "production"
     ? [
-        "https://prueba-tecnica-transcripcion-cristians-projects-99e3cf7d.vercel.app",
-        "https://www.prueba-tecnica-transcripcion-cristians-projects-99e3cf7d.vercel.app",
+        "https://crisper1988.github.io/prueba-tecnica-transcripcion/",
+        "https://www.crisper1988.github.io/prueba-tecnica-transcripcion/",
+        // "https://prueba-tecnica-transcripcion-cristians-projects-99e3cf7d.vercel.app",
+        // "https://www.prueba-tecnica-transcripcion-cristians-projects-99e3cf7d.vercel.app",
       ]
     : ["http://localhost:3000"];
 
