@@ -46,6 +46,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         error: "Error uploading file to Cloudinary",
         errorCode: error,
+        key: process.env.CLOUDINARY_API_KEY,
       });
     }
   } catch (error) {
@@ -53,6 +54,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       error: "Internal server error",
       errorCode: error,
+      key: process.env.CLOUDINARY_API_KEY,
     });
   }
 }
