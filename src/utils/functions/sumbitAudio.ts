@@ -13,13 +13,10 @@ export const handleAudioUpload = async (
     setTranscription(null);
     const formData = new FormData();
     formData.append("file", file);
-    const response = await fetch(
-      "https://prueba-tecnica-transcripcion-hfsof6qh9.vercel.app/api/audio",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+    const response = await fetch("http://localhost:3000/api/audio", {
+      method: "POST",
+      body: formData,
+    });
 
     try {
       const data = await response.json();
