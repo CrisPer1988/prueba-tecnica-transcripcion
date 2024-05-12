@@ -42,7 +42,10 @@ export async function POST(request: NextRequest) {
       return response;
     } catch (error) {
       console.error("Error uploading file to Cloudinary:", error);
-      return NextResponse.json({ error: "Error uploading file to Cloudinary" });
+      return NextResponse.json({
+        error: "Error uploading file to Cloudinary",
+        errorCode: error,
+      });
     }
   } catch (error) {
     console.error("Error uploading file to Cloudinary:", error);
