@@ -14,7 +14,7 @@ export const handleAudioUpload = async (
     const formData = new FormData();
     formData.append("file", file);
     const response = await fetch(
-      "https://prueba-tecnica-transcripcion.vercel.app/api/audio",
+      "https://prueba-tecnica-transcripcion-hfsof6qh9.vercel.app/api/audio",
       {
         method: "POST",
         body: formData,
