@@ -22,7 +22,15 @@ export default function middlewate(request: Request) {
     });
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next(); // Continuar con la próxima acción en la cadena de middleware
+  response.headers.set("Access-Control-Allow-Origin", "*");
+  response.headers.set(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+  return response;
 }
 
 export const config = {

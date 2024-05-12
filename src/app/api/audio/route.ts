@@ -35,12 +35,12 @@ export async function POST(request: NextRequest) {
         url: result.secure_url,
       });
 
-      response.headers.set("Access-Control-Allow-Origin", "*");
-      response.headers.set(
-        "Access-Control-Allow-Methods",
-        "GET, POST, PUT, DELETE, OPTIONS"
-      );
-      response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+      // response.headers.set("Access-Control-Allow-Origin", "*");
+      // response.headers.set(
+      //   "Access-Control-Allow-Methods",
+      //   "GET, POST, PUT, DELETE, OPTIONS"
+      // );
+      // response.headers.set("Access-Control-Allow-Headers", "Content-Type");
 
       return response;
     } catch (error) {
